@@ -37,7 +37,7 @@ namespace SudokuSolverConsole
 
             Console.WriteLine();
 
-            Console.WriteLine(" ************ Before solution ************ ");
+            Console.WriteLine(" ************ After solution ************ ");
             Console.WriteLine();
             board.Print();
 
