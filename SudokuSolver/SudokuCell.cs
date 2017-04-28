@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace SudokuSolverConsole
+namespace SudokuSolver
 {
     public class SudokuCell
     {

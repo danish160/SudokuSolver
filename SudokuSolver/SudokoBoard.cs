@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SudokuSolverConsole
+namespace SudokuSolver
 {
     public class SudokoBoard
     {
@@ -15,64 +15,6 @@ namespace SudokuSolverConsole
             // instantiation is only allowed through separate method 
             // because initial creation is through int array and after that create instances in the solver 
             // where we do not have the initial int array
-        }
-
-        public void Print()
-        {
-            // print board
-            for (int i = 0; i < 9; i++)
-            {
-                for (int j = 0; j < 9; j++)
-                {
-                    if (this.SudoArray[i, j].CellValue == 0)
-                        Console.Write("_" + "  ");
-                    else
-                        Console.Write(this.SudoArray[i, j].CellValue + "  ");
-                }
-                Console.WriteLine();
-                Console.WriteLine();
-            }
-
-            Console.WriteLine();
-        }
-        public void PrintPossibleValues(bool showCellValues)
-        {
-            for (int i = 0; i < 9; i++)
-            {
-                for (int j = 0; j < 9; j++)
-                {
-                    if (this.SudoArray[i, j].CellValue == 0)
-                        Console.Write(this.SudoArray[i, j].PossibleValues.ToCSV() + "\t  ");
-                    else
-                        Console.Write(showCellValues ? (this.SudoArray[i, j].CellValue + "\t  ") : "\t  ");
-                }
-                Console.WriteLine();
-                Console.WriteLine();
-            }
-        }
-        public void PrintRows()
-        {
-            foreach (List<int> t in this.Rows)
-            {
-                foreach (var x in t)
-                    Console.Write(x + "  ");
-                Console.WriteLine();
-            }
-
-            Console.WriteLine("******* ** ******* ** ******* ** *******");
-            Console.WriteLine();
-        }
-        public void PrintColumns()
-        {
-            foreach (List<int> t in this.Columns)
-            {
-                foreach (var x in t)
-                    Console.Write(x + "  ");
-                Console.WriteLine();
-            }
-
-            Console.WriteLine("******* ** ******* ** ******* ** *******");
-            Console.WriteLine();
         }
 
         public List<int> GetBoxValues(int i, int j)
@@ -95,8 +37,7 @@ namespace SudokuSolverConsole
 
             return boxValues;
         }
-
-        private List<int>[] GetBoxValuesList()
+        public List<int>[] GetBoxValuesList()
         {
             List<int>[] list = new List<int>[9];
 
@@ -172,28 +113,6 @@ namespace SudokuSolverConsole
                     }
                 }
             }
-        }
-
-        public bool IsSolved()
-        {
-            if (this.Rows.Any(row => row.GetDistinctSum() != 45))
-            {
-                return false;
-            }
-            else if (this.Columns.Any(col => col.GetDistinctSum() != 45))
-            {
-                return false;
-            }
-            else
-            {
-                var lists = this.GetBoxValuesList();
-                if (lists.Any(list => list.GetDistinctSum() != 45))
-                {
-                    return false;
-                }
-            }
-
-            return true;
         }
 
         public static SudokoBoard CreateBoard(int[,] array)

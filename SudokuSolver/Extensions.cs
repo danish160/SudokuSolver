@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SudokuSolverConsole
+namespace SudokuSolver
 {
     public static class Extensions
     {

@@ -1,4 +1,4 @@
-namespace SudokuSolverConsole
+namespace SudokuSolver
 {
     public interface ISudokoSolver
     {

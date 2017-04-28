@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SudokuSolverConsole
+namespace SudokuSolver
 {
     public class SudokoSolver : ISudokoSolver
     {
@@ -25,6 +22,8 @@ namespace SudokuSolverConsole
         {
             ReducePossibleValues(Board);
 
+            //int a=int.TryParse()
+
             var linearIndices = Enumerable.Range(0, 9)
                                 .SelectMany(i => Enumerable.Range(0, 9)
                                     .Select(j => new { Row = i, Col = j }));
@@ -44,7 +43,7 @@ namespace SudokuSolverConsole
                 {
                     var newBoard = Board.CreateCopy();
                     newBoard.SolveCell(pv, a.RowIndex, a.ColumnIndex);
-                    bool isSolved = newBoard.IsSolved();
+                    bool isSolved = SudokuHelper.IsBoardSolved(newBoard);
                     if (isSolved)
                     {
                         IsSolved = true;
