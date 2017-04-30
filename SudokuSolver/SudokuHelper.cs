@@ -9,7 +9,7 @@ namespace SudokuSolver
     /// <summary>
     /// General utitlity methods for helping with solving sudoku boards
     /// </summary>
-    public class SudokuHelper
+    public static class SudokuHelper
     {
         /// <summary>
         /// Checks whether a sudoku board is solved or not based on column, row or box sums
