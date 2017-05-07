@@ -67,6 +67,14 @@ namespace SudokuSolverConsole
                 Console.WriteLine("Error: The sudoku board has some invalid cells");
             }
 
+
+            List<int> lstA = new List<int> { 1, 2, 3, 4, };
+            List<int> lstB = new List<int> { 4, 3, 2, 1, };
+
+
+            var dups = lstA.Intersect(lstB).ToList();
+            var distinct = lstA.Except(lstB).ToList();
+
             Console.Read();
         }
 

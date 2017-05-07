@@ -77,7 +77,9 @@ namespace SudokuSolver
                             else
                             {
                                 if (boxValues == null)
+                                {
                                     boxValues = pBoard.GetBoxValues(i, j); // new List<int>();
+                                }
 
                                 if (boxValues.Contains(pv))
                                     cell.PossibleValues.Remove(pv);

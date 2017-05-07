@@ -6,9 +6,9 @@ namespace SudokuSolver
 {
     public class SudokoBoard
     {
-        public SudokuCell[,] SudoArray { get; set; }
-        public List<int>[] Rows { get; set; }
-        public List<int>[] Columns { get; set; }
+        public SudokuCell[,] SudoArray { get; private set; }
+        public List<int>[] Rows { get; private set; }
+        public List<int>[] Columns { get; private set; }
 
         private SudokoBoard()
         {
