@@ -11,7 +11,7 @@ namespace SudokuSolver
             return Board;
         }
 
-        public bool IsSolved { get; private set; }
+        //private bool IsSolved { get; set; }
 
         public SudokoSolver(SudokoBoard board)
         {
@@ -46,7 +46,7 @@ namespace SudokuSolver
                     bool isSolved = SudokuHelper.IsBoardSolved(newBoard);
                     if (isSolved)
                     {
-                        IsSolved = true;
+                        //IsSolved = true;
                         Board = newBoard;
                         return;
                     }
